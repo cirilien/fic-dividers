@@ -1,43 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { skins } from "./workSkins";
 import "./App.css";
 
-const DEFAULT_HTML = "<hr />";
-
-const DEFAULT_CSS = `#workskin hr {
-  margin: 50px auto;
-  line-height: 20px;
-  position: relative;
-  outline: 0;
-  border: 0;
-  text-align: center;
-  height: 20px;
-  opacity: 0.8;
-  width: auto;
-}
-
-#workskin hr::before {
-  content: "";
-  background: linear-gradient(90deg, transparent 0%, currentColor 47%, transparent 47%, transparent 53%, currentColor 53%, transparent 100%);
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
-  height: 1px;
-}
-
-#workskin hr::after {
-  content: "◈";
-  position: absolute;
-  left: 50%;
-  margin-left: -10px;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-}`;
-
 function App() {
-  const [html, setHtml] = useState(DEFAULT_HTML);
-  const [css, setCss] = useState(DEFAULT_CSS);
+  const [baseSkin, setBaseSkin] = useState(skins[0]);
+  const [html, setHtml] = useState(skins[0].html);
+  const [css, setCss] = useState(skins[0].css);
   const styleRef = useRef(null);
 
   useEffect(() => {
@@ -46,13 +14,20 @@ function App() {
     }
   }, [css]);
 
+  function handleBaseSkinChange(title) {
+    const newSkin = skins.find((skin) => skin.title === title);
+    setBaseSkin(newSkin);
+    setHtml(newSkin.html);
+    setCss(newSkin.css);
+  }
+
   return (
     <div className="app">
       <div className="preview-panel">
         <h2 className="panel-label">Preview</h2>
         <style ref={styleRef}>{css}</style>
         <div className="preview-container">
-          <div class="preview-content" id="workskin">
+          <div className="preview-content" id="workskin">
             <p>
               Xue Yang presses a hand to the cut on his shoulder, and his
               fingers come back sticky with blood. “Fuck,” he mutters. But he
@@ -76,6 +51,18 @@ function App() {
         </div>
       </div>
       <div className="editor-panel">
+        <div class="selector">
+          <select
+            value={baseSkin.title}
+            onChange={(e) => handleBaseSkinChange(e.target.value)}
+          >
+            {skins.map((skin) => (
+              <option key={skin.title} value={skin.title}>
+                {skin.title}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="editor-group">
           <label htmlFor="html" className="panel-label">
             HTML of the divider element
