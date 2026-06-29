@@ -132,4 +132,68 @@ export const skins = [
   width: 0px;
 }`,
   },
+  {
+    title: "as many as six impossible things",
+    html: `<div class="divider"><hr /></div>`,
+    css: `#workskin .divider {
+  margin: 50px auto;
+  line-height: 30px;
+  position: relative;
+  outline: 0;
+  border: 0;
+  text-align: center;
+  height: 30px;
+  opacity: 0.8;
+  width: 80%;
+  font-size: 30px;
+}
+
+#workskin .divider::after {
+  content: "✦";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -10px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+#workskin .divider::before {
+  content: "";
+  background: linear-gradient(90deg, transparent 0%, currentColor 30%, currentColor 80%, transparent 100%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -30%;
+  margin-top: 0.5px;
+  width: 60%;
+  height: 1px;
+}
+
+#workskin hr {
+  outline: 0;
+  border: 0;
+}
+
+#workskin hr::before {
+  content: "";
+  background: linear-gradient(90deg, transparent 0%, currentColor 30%, currentColor 80%, transparent 100%);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 60%;
+  height: 1px;
+}
+
+#workskin hr::after {
+  content: "";
+  background: linear-gradient(90deg, transparent 0, currentColor 15%, currentColor 70%, transparent 100%);
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  width: 60%;
+  height: 1px;
+}`,
+  },
 ];
