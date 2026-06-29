@@ -1,0 +1,81 @@
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.preview-panel {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: #000;
+}
+
+.preview-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-content p {
+  /* AO3 defaults */
+  margin: 1.286em auto;
+}
+
+#workskin {
+  width: 100%;
+}
+
+.editor-panel {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: auto;
+  background: #1c1c1c;
+}
+
+.editor-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+}
+
+.editor-panel textarea {
+  flex: 1;
+  background: #252525;
+  color: #e0e0e0;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 12px;
+  font-family:
+    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono",
+    monospace;
+  font-size: 14px;
+  resize: none;
+  tab-size: 2;
+}
+
+.editor-panel textarea:focus {
+  outline: 1px solid #50b2b9;
+  border-color: #50b2b9;
+}
+
+.panel-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #aaa;
+  margin: 0;
+  font-weight: normal;
+}
+
+.preview-panel .panel-label {
+  color: #888;
+  margin-bottom: 20px;
+}
