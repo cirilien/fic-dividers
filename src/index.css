@@ -5,7 +5,13 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  font:
+    100%/1.125 "Lucida Grande",
+    "Lucida Sans Unicode",
+    Verdana,
+    Helvetica,
+    sans-serif,
+    "GNU Unifont";
 }
 
 #root {
